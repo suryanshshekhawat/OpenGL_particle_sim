@@ -5,3 +5,5 @@ OpenGL based Particle Simulator
 Made an in-browser particle simulator, which uses Elastic Collision physics, in a gravity free cubic environment.
 Takes masses from 0.5 to 6.
 Takes anywhere from 0 to 10 particles (graphics issues afterthat).
+
+[![Watch the video](img.jpg)](https://www.instagram.com/p/C8sIjuuyWT2/)
