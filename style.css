@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.left {
+    width: 20%;
+    background-color: darkslateblue;
+    color: white; /* Adding text color for better visibility */
+    padding: 10px;
+}
+
+.right {
+    width: 80%;
+    background-color: darkslategray;
+    overflow: hidden; /* Ensures no overflow issues */
+}
+
+canvas {
+    display: block; /* Removes any default margin/padding from the canvas */
+}

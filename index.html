@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .box-container {
+            margin-top: 20px;
+        }
+        input[type="number"] {
+            margin: 5px;
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="numberForm">
+            <label for="n">Enter an integer from 1 to 10:</label>
+            <input type="number" id="n" name="n" min="1" max="10" required>
+            <button type="button" onclick="generateBoxes()">Generate</button>
+        </form>
+        <div class="box-container" id="boxContainer"></div>
+        <button type="button" onclick="collectNumbers()">Submit</button>
+    </div>
+
+    <script>
+        function generateBoxes() {
+            const n = document.getElementById('n').value;
+            const boxContainer = document.getElementById('boxContainer');
+            boxContainer.innerHTML = '';
+
+            for (let i = 0; i < n; i++) {
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.min = '0.5';
+                input.max = '6';
+                input.step = '0.1';
+                input.required = true;
+                boxContainer.appendChild(input);
+            }
+        }
+
+        function collectNumbers() {
+            const inputs = document.querySelectorAll('.box-container input');
+            const numbers = Array.from(inputs).map(input => parseFloat(input.value));
+            const numbersList = JSON.stringify(numbers);
+
+            const encodedNumbers = encodeURIComponent(numbersList);
+            window.location.href = 'simulation.html?numbers=' + encodedNumbers;
+        }
+
+    </script>
+</body>
+</html>
